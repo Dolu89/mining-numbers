@@ -1,9 +1,10 @@
 {
   "name": "mining-numbers",
-  "version": "0.0.2",
+  "version": "0.0.3",
+  "description": "Mining numbers converter",
+  "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "description": "",
   "scripts": {
     "build": "bun run build.mjs",
     "prepublishOnly": "bun run build",
