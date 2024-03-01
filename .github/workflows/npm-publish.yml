@@ -27,6 +27,10 @@ jobs:
         name: Run test
         run: |
           bun test
+      - id: build
+        name: Run build
+        run: |
+            bun build
 
       - uses: JS-DevTools/npm-publish@v3.0.1
         with:
