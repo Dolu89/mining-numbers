@@ -1,0 +1,33 @@
+{
+  "name": "mining-numbers",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "description": "",
+  "scripts": {
+    "build": "bun run build.mjs",
+    "prepublishOnly": "bun run build",
+    "format": "biome format --write .",
+    "lint": "biome lint ./src ./test ./build.mjs"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "bun"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/dolu89/mining-numbers#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dolu89/mining-numbers.git"
+  },
+  "bugs": "https://github.com/dolu89/mining-numbers/issues",
+  "author": "Dolu89",
+  "devDependencies": {
+    "@biomejs/biome": "^1.5.3",
+    "@types/bun": "^1.0.8",
+    "bun-plugin-dts": "^0.2.1",
+    "typescript": "^5.3.3"
+  }
+}
