@@ -187,6 +187,16 @@ describe("parsing from string", () => {
 		const hashrate = Hashrate.parse("1.5 KH/s");
 		expect(hashrate.toNumber()).toBe(1500);
 	});
+
+	it('should parse "52.7K" to 52700', () => {
+		const hashrate = Hashrate.parse("52.7K");
+		expect(hashrate.toNumber()).toBe(52700);
+	});
+
+	it('should parse "426G" to 426000000000', () => {
+		const hashrate = Hashrate.parse("426G");
+		expect(hashrate.toNumber()).toBe(426000000000);
+	});
 });
 
 describe("error handling", () => {

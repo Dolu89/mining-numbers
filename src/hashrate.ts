@@ -4,7 +4,7 @@ export type HashrateUnit = "H" | "KH" | "MH" | "GH" | "TH" | "PH" | "EH";
 const UNITS: HashrateUnit[] = ["H", "KH", "MH", "GH", "TH", "PH", "EH"];
 
 export class Hashrate extends Base {
-	private static regex = /^(\d+(?:\.\d+)?)\s*([A-Za-z]*)\/s$/;
+	private static regex = /^(\d+(?:\.\d+)?)\s*([A-Za-z]*)(?:\/s)?$/;
 
 	constructor(
 		public value: number,
@@ -14,7 +14,13 @@ export class Hashrate extends Base {
 	}
 
 	static parse(input: number | string): Hashrate {
-		const base = Base.parse(input, Hashrate.regex, UNITS);
+		let hashrateInput = input;
+		if (typeof input === "string") {
+			if (!input.endsWith("H/s")) {
+				hashrateInput = `${input}H/s`;
+			}
+		}
+		const base = Base.parse(hashrateInput, Hashrate.regex, UNITS);
 		return new Hashrate(base.getValue, base.getUnit as HashrateUnit);
 	}
 
